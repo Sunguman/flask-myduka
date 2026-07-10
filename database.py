@@ -48,3 +48,37 @@ def insert_stock():
 insert_stock()
 stock = get_stock()
 print(stock)
+
+def insert_products(product_values):
+    cur.execute("insert into products(name,buying_price,selling_price)values(%s,%s,%s)", product_values)
+    conn.commit() # commit your changes permanently in the database
+
+product1 = ("laptop", 2000, 2500)
+product2 = ("shirts", 1500, 2000)
+insert_products(product1)
+insert_products(product2)
+products = get_products()
+print(products)
+
+
+def insert_sales(sale_values):
+    cur.execute("insert into sales(pid,quantity)values(%s,%s)", sale_values)
+    conn.commit()
+
+sale1 = (1, 5)
+sale2 = (2, 10)
+insert_sales(sale1)
+insert_sales(sale2)
+sales = get_sales()
+print(sales)
+
+def insert_stock(stock_values):
+    cur.execute("insert into stock(pid,stock_quantity)values(%s,%s)", stock_values)
+    conn.commit()
+
+stock1 = (1, 10)
+stock2 = (2, 20)
+insert_stock(stock1)
+insert_stock(stock2)
+stock = get_stock()
+print(stock)
