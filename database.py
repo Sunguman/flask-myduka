@@ -82,3 +82,13 @@ insert_stock(stock1)
 insert_stock(stock2)
 stock = get_stock()
 print(stock)
+
+
+def sales_per_product():
+    cur.execute("""
+           select products.name, sum(sales.quantity) as total_sales from sales join products on sales.pid = products.id group by products.name
+""")
+    sales_per_product = cur.fetchall()
+    return sales_per_product
+sales_per_product = sales_per_product()
+print(sales_per_product)
