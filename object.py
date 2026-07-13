@@ -4,6 +4,10 @@ class person:
         self.name = name
         self.age = age
         self.gender = gender
+    def talks(self,words): # defining a method called talks that takes an additional parameter called words. This method will allow the person instance to "talk" by printing the words passed to it.
+        print(f"{self.name} talks and says: {words}") # printing the words passed to the talks method to the console
+
+
 
 person1 = person("John", 30, "Male") # creating an instance of the person class and passing values for name, age, and gender. The constructor method
 person2 = person("Alice", 25, "Female") # creating another instance of the person class with different values for name, age
@@ -14,3 +18,55 @@ print(person1)
 print(person2) # printing the instances of the person class. By default, this will print the memory address of the object, but you can override the __str__ method to provide a more meaningful representation of the object when printed.
 
 print(type(person1))
+
+
+# Define the BankAccount class
+class BankAccount:
+
+    # Constructor
+    def __init__(self, account_number, owner_name, balance, date_opened):
+        self.account_number = account_number
+        self.owner_name = owner_name
+        self.balance = balance
+        self.date_opened = date_opened
+
+    # Deposit method
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Ksh {amount} deposited successfully.")
+        else:
+            print("Invalid deposit amount.")
+
+    # Withdraw method
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Ksh {amount} withdrawn successfully.")
+        else:
+            print("Insufficient balance.")
+
+    # Display account information
+    def display_info(self):
+        print("\n----- Account Information -----")
+        print("Account Number:", self.account_number)
+        print("Owner Name:", self.owner_name)
+        print("Balance: Ksh", self.balance)
+        print("Date Opened:", self.date_opened)
+
+
+# Create two BankAccount objects
+account1 = BankAccount("1001", "John Doe", 5000, "01-01-2026")
+account2 = BankAccount("1002", "Jane Smith", 10000, "15-02-2026")
+
+
+# Perform transactions on account1
+account1.deposit(2000)
+account1.withdraw(1500)
+account1.display_info()
+
+
+# Perform transactions on account2
+account2.deposit(5000)
+account2.withdraw(3000)
+account2.display_info()
