@@ -92,3 +92,33 @@ def sales_per_product():
     return sales_per_product
 sales_per_product = sales_per_product()
 print(sales_per_product)
+
+
+def profit_per_product():
+    cur.execute("""
+           select products.name,
+                  sum(sales.quantity * (products.selling_price - products.buying_price)) as total_profit
+           from sales
+           join products on sales.pid = products.id
+           group by products.name
+           order by products.name
+""")
+    profit_per_product = cur.fetchall()
+    return profit_per_product
+profit_per_product = profit_per_product()
+print(profit_per_product)
+
+
+def profit_per_day():
+    cur.execute("""
+           select date(sales.created_at) as sale_date,
+                  sum(sales.quantity * (products.selling_price - products.buying_price)) as total_profit
+           from sales
+           join products on sales.pid = products.id
+           group by date(sales.created_at)
+           order by sale_date
+""")
+    profit_per_day = cur.fetchall()
+    return profit_per_day
+profit_per_day = profit_per_day()
+print(profit_per_day)
