@@ -36,7 +36,7 @@ class BankAccount:
             self.balance += amount
             print(f"Ksh {amount} deposited successfully.")
         else:
-            print("Invalid deposit amount.")
+            print("Deposit unsuccessful.")
 
     # Withdraw method
     def withdraw(self, amount):
@@ -44,7 +44,7 @@ class BankAccount:
             self.balance -= amount
             print(f"Ksh {amount} withdrawn successfully.")
         else:
-            print("Insufficient balance.")
+            print("Withdrawal unsuccessful. Insufficient balance.")
 
     # Display account information
     def display_info(self):
