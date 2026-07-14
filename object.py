@@ -30,6 +30,10 @@ class BankAccount:
         self.balance = balance
         self.date_opened = date_opened
 
+        from datetime import datetime
+        today= datetime.now().date()
+    
+
     # Deposit method
     def deposit(self, amount):
         if amount > 0:
