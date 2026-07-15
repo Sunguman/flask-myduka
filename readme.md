@@ -220,3 +220,69 @@ Encapsulation
 A Python framework used to build web applications.
 
 ## Framework vs Library
+anology building a house
+scenerio 1:
+Thomas intends to build a house. he recognizes that he is not an expert in this field and decides to seek the help of professionals *(engineers)* to make it more easier but becomes very rigid because i have to be advised.
+very easy and fast but very strict.
+--framwork--
+
+Scenario 2
+decides to build it by myself. process becomes much harder but fairly flexible.
+process is harder but flexible
+--Library--
+
+*framework* a prebuilt structure of code and tools that help developers build applications easily but not haveing to build everything on their own and from scratch . it makes the development process easier but has very strict guidelines on usage.
+
+Examples of framework
+
+1. python --Flask, Django, FastAPI
+2. Javascript--React, Vue, Angular, svelte
+3. Laravel
+4. Spring
+5. c# .net
+6. Go Chi,gin
+7. Ruby on rails
+
+Mobile native --android kotlin,java
+              --ios swift
+
+React native can build apps for both android and ios(apps are slow)
+
+*FLASK*
+*Routing* : is the mechanisms that maps or connects urls to python
+*URL* uniform resource locator; the full address that is used to access an application e.g <https://meet.google.com/dsh-idtb-oqb>
+
+Part of a url
+
+1. Protocol; tells the browser the mode of communication, http and https, http hypertext transfer protocol( transfer data as raw text), https hypertext transfer protocol secure(Transfer data in encrypted format) to convert use ssl /tls certificate which is free
+2. Domain Name; human friendly name for an ip address.
+3. path/rule; specific resource or sections to be access on an application, <https://meet.google.com/*dsh-idtb-oqb>*
+4. port(optional)
+
+
+
+To enable routing in Flask we use a decorator function called @app.route('/)
+
+
+https://www.google.com/
+/ index route / default route/location a user lands in when they first open an application
+
+@app.route('/')  decorator function
+def home():   view function
+    return "Hello world"   data to be returned.
+
+View function  is responsible for returning some data
+
+
+To render/ return html pages in Flask we must have the following
+
+Static data/ all static files of your project:
+css files, images, videos, favicons,icons
+templates/contain all html pages/files
+index.html
+sales.html
+single html file is called a template
+database.py
+main.py
+
+to return a html pages we use a function called *render_template* which is imported from flask
