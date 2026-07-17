@@ -428,14 +428,19 @@ block title -> defines a block in which we can pass the unique title of each pag
 
 -> to apply template inheritance we use ---> extends base.html in jinja
 
-*JINJA*
-is a template engine intergrated with flask to render dynamic html pages
-used to display data from python in html
+JINJA -> A templating engine integrated with Flask to render dynamic html pages. -> It is simply syntax used depending on whether a control structure is used or not
 
-control structures
-the building blocks
-1. sequence a program to executes top to bottom, left to right
-2. selection ...decision making use of conditional statements
-3. repitition loops for and while
+control structures -> building blocks of a language: 1.Sequence -> a program executes from top to bottom , left to right 2.Selection -> decision making -> conditional statements 3.Repitition -> iteration -> loops
 
-*How to use jinja*
+how to use Jinja 1.Variables -> use double curly braces ====> {{ }} 2.Control structures e.g if statements , for loops, while loops etc -> when using Jinja with control structures , it must have the following parts: => initialization (where does the control structure start) => termination( terminating the control structure) -> we use modulus signs embedded inside curly braces ==> {% %}
+
+e.g. 
+ 
+ {% if x== 5 %}  -> initialization
+    .............
+ {% endif %} - termination
+
+
+ {% for i in numbers %}
+     ......
+ {% endfor %}
