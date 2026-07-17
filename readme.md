@@ -427,3 +427,15 @@ TEMPLATE INHERITANCE -> This is a feature thta enables us reduce redundancy in d
 block title -> defines a block in which we can pass the unique title of each page block content -> defines a block in which we can pass the unique content of each page
 
 -> to apply template inheritance we use ---> extends base.html in jinja
+
+*JINJA*
+is a template engine intergrated with flask to render dynamic html pages
+used to display data from python in html
+
+control structures
+the building blocks
+1. sequence a program to executes top to bottom, left to right
+2. selection ...decision making use of conditional statements
+3. repitition loops for and while
+
+*How to use jinja*

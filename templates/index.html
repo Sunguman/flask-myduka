@@ -6,6 +6,20 @@
     
 <p>This is the home page</p>
 
+{{ num }}
+
+<p> {{ name }} <p>
+    
+<div>
+  {{ numbers }}
+<div>
+    {% for i in numbers %}
+        {% if i % 2 == 0 %}
+            <h1>{{ i }}</h1>
+        {% endif %}
+    {% endfor %}
+</div>
 
 </div>
+
 {% endblock %}
