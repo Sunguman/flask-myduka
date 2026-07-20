@@ -444,3 +444,21 @@ e.g.
  {% for i in numbers %}
      ......
  {% endfor %}
+
+
+ *DISPLAY DATA IN HTML*
+==> Database -> Psycopg2 -> Python -> Jinja -> HTML
+==> data format : list of tuples 
+==> display data in user friendly tables 
+
+
+[(1, 'eggs', Decimal('50.00'), Decimal('60.00')), (2, 'bread', Decimal('55.00'), Decimal('65.00')), (3, 'shoes', Decimal('2000.00'), Decimal('2500.00')), (4, 'samsung phone', Decimal('20000.00'), Decimal('25000.00')), (5, 'juice', Decimal('80.00'), Decimal('120.00')), (6, 'juice', Decimal('80.00'), Decimal('120.00')), (7, 'juice', Decimal('80.00'), Decimal('120.00')), (8, 'charger', Decimal('1500.00'), Decimal('2000.00'))]
+
+list => the entire dataset
+tuple => a single record of data 
+
+
+*Task*
+Display your sales and stock data using a datatable
+
+https://datatables.net/examples/styling/bootstrap5.html
