@@ -462,3 +462,64 @@ tuple => a single record of data
 Display your sales and stock data using a datatable
 
 https://datatables.net/examples/styling/bootstrap5.html
+
+==> Display your sales and stock data using a datatable. 
+
+
+*POSTING DATA IN FLASK*
+
+*Posting data workflow*
+1.User is provided with a form to fill
+2.User will fill and submit the form
+3.The form is submitted to a route in Flask for processing
+4.Flask extracts form data using a request object
+    -> data comes in form of key value pairs
+    -> data is extracted using the key 
+    -> key is specified in the name attribute of an input
+    -> request object uses the key to access and extract form data
+    -> request object has 2 methods:
+          > request.method -> used to determine what method has been specified in a form
+          > request.form -> accesses and extracts form data using the key
+5.Data is processed and stored
+6.User is notified and redirected
+
+
+
+*Form Checklist to Post Data*
+1.action attribute 
+    => specifies the route in which the form data is to be submitted
+2.method attribute 
+   => specifies what the server should do with the resource / data
+3.name attribute 
+   => form data sent to the server is sent in form of key-value pairs
+   => name attribute specifies the key used to access the value
+4.input type 
+5.button of type submit
+
+
+*What can a server do with data?*
+1.GET -> moving data from the server to the client
+      -> e.g. viewing products
+2.POST -> moving data from client to server
+       -> e.g. posting pictures on instagram, adding a product 
+3.PUT -> updating an existing resource
+      -> e.g. changing username / password, changing product name / prices
+4.DELETE -> getting rid of data / resource
+
+
+
+"eggs" -> product name
+17 -> buying price
+20 - selling price
+
+p_name : "eggs"
+b_price: 17
+s_price : 20
+
+*redirecting*
+-> taking a user from one section to another
+-> here we use the redirect and url_for functions which are imported from flask
+redirect(url_for('   '))-> pass the name of the view function
+
+*Task*
+-> apply the same procedure to post sales and stock data 
