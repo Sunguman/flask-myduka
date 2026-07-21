@@ -6,7 +6,34 @@
     
 <p>This is the stock page</p>
 
-{{ stock_data }}
+<div>
+    <table id="example" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pid</th>
+                <th>Stock_Quantity</th>
+                <th>Created_at</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stock_data %}
+            <tr>
+                <td>{{stock[0]}}</td>
+                <td>{{stock[1]}}</td>
+                <td>{{stock[2]}}</td>
+                <td>{{stock[3]}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+</div>
 
 
 </div>

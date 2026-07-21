@@ -1,34 +1,35 @@
-from flask import Flask,render_template
-from database import get_products,get_sales,get_stock
+from flask import Flask, render_template
+from database import get_products, get_sales, get_stock
 
-#Flask instance
+# Flask instance
 app = Flask(__name__)
 
+
 # http://127.0.0.1:5000/products
-@app.route('/') #decorator function
-def home(): #view function
-    x=5
+@app.route('/')
+def home():
+    x = 5
     name = "Jane"
-    numbers =[1,2,3,4,5,6,7,8,9]
-    return render_template('index.html',num = x,name = name,numbers = numbers)
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    return render_template('index.html', num=x, name=name, numbers=numbers)
 
 
-@app.route("/products") 
+@app.route('/products')
 def products():
     products_data = get_products()
-    return render_template('products.html',products_data=products_data)
+    return render_template('products.html', products_data=products_data)
 
 
 @app.route('/sales')
 def sales():
     sales_data = get_sales()
-    return render_template('sales.html',sales_data=sales_data)
+    return render_template('sales.html', sales_data=sales_data)
 
 
 @app.route('/stock')
 def stock():
-    stock_data =get_stock()
-    return render_template('stock.html',stock_data=stock_data)
+    stock_data = get_stock()
+    return render_template('stock.html', stock_data=stock_data)
 
 
 @app.route('/dashboard')
@@ -46,4 +47,5 @@ def login():
     return render_template('login.html')
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

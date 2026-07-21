@@ -6,7 +6,34 @@
     
 <p>This is the sales page</p>
 
- {{ sales_data }}
+<div>
+    <table id="example" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pid</th>
+                <th>Quantity</th>
+                <th>Created_at</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for sales in sales_data %}
+            <tr>
+                <td>{{sales[0]}}</td>
+                <td>{{sales[1]}}</td>
+                <td>{{sales[2]}}</td>
+                <td>{{sales[3]}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+</div>
 
 
 </div>
