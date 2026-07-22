@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect,url_for
-from database import get_products, get_sales, get_stock, insert_products
+from flask import Flask, render_template, request, redirect, url_for
+from database import get_products, get_sales, get_stock, insert_products, insert_sales, insert_stock
 
 # Flask instance
 app = Flask(__name__)
@@ -36,13 +36,41 @@ def add_products():
 @app.route('/sales')
 def sales():
     sales_data = get_sales()
-    return render_template('sales.html', sales_data=sales_data)
+    products_data = get_products()
+    return render_template('sales.html', sales_data=sales_data,products_data=products_data)
+
+@app.route('/add_sales',methods=['GET','POST'])   # route for adding Sales
+def make_sale():
+    if request.method=='POST':
+        pid = request.form['pid']
+        quantity = request.form['quantity']
+       
+
+        new_sale = (pid, quantity)
+        insert_sales(new_sale)
+        print("Sale made successfully")
+    return redirect(url_for('sales'))
+
 
 
 @app.route('/stock')
 def stock():
     stock_data = get_stock()
-    return render_template('stock.html', stock_data=stock_data)
+    products_data = get_products()
+    return render_template('stock.html', stock_data=stock_data,products_data=products_data)
+
+@app.route('/add_stock',methods=['GET','POST'])   # route for adding Stock
+def add_stock():
+    if request.method=='POST':
+        pid = request.form['pid']
+        stock_quantity = request.form['s_quantity']
+     
+
+        new_stock = (pid, stock_quantity,)
+        insert_stock(new_stock)
+        print("Stock added successfully")
+    return redirect(url_for('stock'))
+
 
 
 @app.route('/dashboard')
