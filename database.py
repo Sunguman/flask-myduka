@@ -106,3 +106,16 @@ def profit_per_day():
                 """
             )
             return cur.fetchall()
+            
+
+
+def check_available_stock(pid):
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("select sum(stock_quantity) from stock where pid = %s",(pid,))  # a comma represent a tuple
+            total_stock = cur.fetchone()[0] or 0 # cur.fetchall() returns a list of tuples, cur.fetchone() returns a tuple
+
+            cur.execute("select sum(quantity) from sales where pid = %s",(pid,))
+            total_sold = cur.fetchone()[0] or 0
+
+            return total_stock - total_sold

@@ -536,3 +536,46 @@ Select Country Kenya Uganda Tanzania Select Country Milk Eggs bread
   <option value="2">Eggs</option>
   <option value="3">Bread</option>
 </select>
+
+
+MAKING PURCHASES user adds a product -> milk user adds some stock on that product -> 100 packets user attempts to complete a sale -> check whether we have enough stock available -> if we have enough stock, complete sale otherwise notify of insufficient stock
+
+milk -> 100 sell 50 remaining stock = 100 - 50 = 50
+
+flask_myduka=# select * from stock; id | pid | stock_quantity | created_at
+----+-----+----------------+---------------------------- 1 | 3 | 100 | 2026-07-23 14:48:09.494124 2 | 3 | 200 | 2026-07-23 14:48:09.494124
+
+total stock = 300
+
+#sales** id | pid | quantity | created_at
+----+-----+----------------+---------------------------- 1 | 3 | 20 | 2026-07-23 14:48:09.494124 2 | 3 | 30 | 2026-07-23 14:48:09.494124
+
+total sold = 50
+
+remaining stock of a product = total stock - total sold (2 rows)
+
+flask_myduka=#
+
+Naivas --> Colgate
+
+10000 items -> time? 5000 items -> time?
+
+select sum(stock_quantity) from stock where pid =
+
+cur.fetchall() -> returns a list of tuples cur.fetchone() -> returns a tuple
+
+[(300,)] -> [0][0] [(50,)] -> [0][0]
+
+(300,) -> [0]
+
+user adds bread as a new product -> user adds no stock -> user makes no sales
+
+user adds bread as a new product -> user adds some stock (1000) -> user makes no sales
+
+zero -> a real value null /nil -> doesn't exist to begin with
+
+Flashing -> One time notifications to the user after some action -> we use a flash function -> flash() which takes 2 arguments 1.Message -> message to be displayed e.g. Product added successfully 2.Message Category -> e.g. error , success
+
+Message categries: 1.success -> green 2.error / danger -> red 3.warning -> yellow 4.info -> blue
+
+Flash messages are stored in session cookies in the browser -> to store data in session we need a secret key

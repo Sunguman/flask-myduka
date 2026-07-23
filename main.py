@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
-from database import get_products, get_sales, get_stock, insert_products, insert_sales, insert_stock
+from flask import Flask, render_template, request, redirect, url_for,flash
+from database import get_products, get_sales, get_stock, insert_products, insert_sales, insert_stock,check_available_stock
 
 # Flask instance
 app = Flask(__name__)
+
+app.secret_key= 'vfbfscsfg5677ghn'
 
 
 # http://127.0.0.1:5000/products
@@ -28,7 +30,7 @@ def add_products():
 
         new_product=(product_name,buying_price,selling_price)
         insert_products(new_product)
-        print("Product added successfully")
+        flash("Product added successfully",'success')
     return redirect(url_for('products'))
 
 
@@ -44,11 +46,17 @@ def make_sale():
     if request.method=='POST':
         pid = request.form['pid']
         quantity = request.form['quantity']
+
+        available_stock=check_available_stock(pid)
+
+        if float(quantity)>available_stock:
+            flash("Insufficient stock",'danger')
+            return redirect(url_for('sales'))
        
 
         new_sale = (pid, quantity)
         insert_sales(new_sale)
-        print("Sale made successfully")
+        flash("Sale made successfully",'success')
     return redirect(url_for('sales'))
 
 
