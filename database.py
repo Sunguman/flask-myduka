@@ -76,6 +76,22 @@ def sales_per_product():
             return cur.fetchall()
 
 
+def sales_per_day():
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                select date(sales.created_at) as sale_date,
+                       sum(sales.quantity) as total_sales
+                from sales
+                join products on sales.pid = products.id
+                group by date(sales.created_at)
+                order by sale_date
+                """
+            )
+            return cur.fetchall()
+
+
 def profit_per_product():
     with get_connection() as conn:
         with conn.cursor() as cur:

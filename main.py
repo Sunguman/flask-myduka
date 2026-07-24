@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for,flash
-from database import get_products, get_sales, get_stock, insert_products, insert_sales, insert_stock,check_available_stock
+from database import get_products, get_sales, get_stock, insert_products, insert_sales, insert_stock,check_available_stock,sales_per_product,sales_per_day,profit_per_product,profit_per_day
 
 # Flask instance
 app = Flask(__name__)
@@ -76,14 +76,35 @@ def add_stock():
 
         new_stock = (pid, stock_quantity,)
         insert_stock(new_stock)
-        print("Stock added successfully")
+        flash("Stock added successfully",'success')
     return redirect(url_for('stock'))
 
 
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    sales_product = sales_per_product()
+    sales_day = sales_per_day()
+
+    profit_product = profit_per_product()
+    profit_day = profit_per_day()
+
+    product_names = [i[0] for i in sales_product]
+    s_product = [i[1] for i in sales_product]
+    p_profit = [i[1] for i in profit_product]
+
+    dates = [i[0] for i in sales_day]
+    dates_sales = [i[1] for i in sales_day]
+    dates_profit = [i[1] for i in profit_day]
+
+    return render_template('dashboard.html',
+                           product_names=product_names,
+                           s_product=s_product,
+                           p_profit=p_profit,
+                           dates=dates,
+                           dates_sales=dates_sales,
+                           dates_profit=dates_profit
+                           )
 
 
 @app.route('/register')

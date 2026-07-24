@@ -579,3 +579,22 @@ Flashing -> One time notifications to the user after some action -> we use a fla
 Message categries: 1.success -> green 2.error / danger -> red 3.warning -> yellow 4.info -> blue
 
 Flash messages are stored in session cookies in the browser -> to store data in session we need a secret key
+
+
+Data Visualization in Dashboard -> Is the aspect of representing data using visual aids in order to gain some insights from it -> Charts: -> bar charts, line charts , histograms , frequency polygons, pie chart, radar chart, scatter plots heat maps, doughnut chart
+
+   bar chart
+sales per product -> sale values , product names. 
+profit per product -> profit values , product names
+  x axis -> product names
+  y axis -> sales and profit
+
+  line chart
+sales per day -> sales values , dates
+profit per day - -> profit values , dates
+  x axis -> dates
+  y axis -> sales and profit
+
+
+*List comprehension*
+-> a simpler way of looping through a collection and appending values in a list

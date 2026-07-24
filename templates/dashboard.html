@@ -3,9 +3,39 @@
 {% block content %} 
 <div>
 
-    
-<p>This is the dashboard page</p>
-
 
 </div>
+<hr>
+<h3>Sales per Product</h3>
+{% if product_names and s_product and product_names|length > 0 %}
+	<ul>
+	{% for i in range(product_names|length) %}
+		<li>{{ product_names[i] }}: {{ s_product[i] }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No sales per product data.</p>
+{% endif %}
+
+<h3>Profit per Product</h3>
+{% if p_profit and product_names and product_names|length > 0 %}
+	<ul>
+	{% for i in range(product_names|length) %}
+		<li>{{ product_names[i] }}: {{ p_profit[i] }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No profit per product data.</p>
+{% endif %}
+
+<h3>Sales per Day</h3>
+{% if dates and dates_sales and dates|length > 0 %}
+	<ul>
+	{% for i in range(dates|length) %}
+		<li>{{ dates[i] }}: {{ dates_sales[i] }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No sales per day data.</p>
+{% endif %}
 {% endblock %}
